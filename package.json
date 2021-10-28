@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "YOUR NAME HERE",
+  "author": "Steven T. Mason",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^6.0.58",
     "@types/readline-sync": "^1.4.3",
-    "readline-sync": "^1.4.5"
+    "readline-sync": "^1.4.5",
+    "typescript": "^4.4.4"
   }
 }
