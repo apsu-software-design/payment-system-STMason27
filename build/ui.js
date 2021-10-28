@@ -4,12 +4,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.start = void 0;
 var readlineSync = require("readline-sync"); //for easier repeated prompts
-var payment_systems_1 = require("./payment_systems");
+//var payment_systems_1 = require("./payment_systems");
+var payment_systems_1 = require("./cardFactory");
 /**
  * Function to run the UI
  */
 function start() {
-    showMainMenu(new payment_systems_1.PaymentSystemContext());
+    showMainMenu(new payment_systems_1.cardFactory());
 }
 exports.start = start;
 /**
@@ -24,22 +25,26 @@ function showMainMenu(psc) {
         }
         switch (response) { //handle each response
             case '1':
-                showCreditCardPaymentMenu(psc);
+                var item = psc.strategy('creditcard'); // ;!!!!!!!!!!!!!!!showCreditCardPaymentMenu(psc)
+                //item.execute();
                 break;
             case '2':
-                showBankDraftPaymentMenu(psc);
+                var item = psc.strategy('bankdraft');// showBankDraftPaymentMenu(psc);
+                //item.execute();
                 break;
             case '3':
-                showOnlinePaymentMenu(psc);
+                var item = psc.strategy('onlinepayment');// showOnlinePaymentMenu(psc);
+                //item.execute();
                 break;
             case '4':
-                showOfflinePaymentMenu(psc);
+                var item = psc.strategy('offlinepayment');// showOfflinePaymentMenu(psc);
+               // item.execute();
                 break;
             default: console.log('Invalid option!');
         }
         console.log(''); //extra empty line for revisiting
     }
-}
+}/*
 function showCreditCardPaymentMenu(psc) {
     console.log('Enter Credit Card Payment Details.');
     var name = readlineSync.question('  Name: ');
@@ -93,4 +98,4 @@ function showOfflinePaymentMenu(psc) {
     else {
         console.log('The payment is invalid.');
     }
-}
+}*/
